@@ -1,6 +1,10 @@
-
-  
 import os
+import subprocess
+import speech_recognition as sr
+//"pip install SpeechRecognition"
+//"pip install pyttsx3"
+//"conda install pyaudio" or "pip install pyaudio"
+import pyttsx3 as p
 import getpass
 from pyfiglet import Figlet
 
@@ -10,7 +14,7 @@ def render(text,style,num):
 	print(f.renderText(text))
 
 os.system("tput setaf 1")
-render('LinuxGun','big',0)
+render('Bang - Bang','big',0)
 render('by Lalita Sharma','digital',5)
 os.system("tput setaf 7")
 
@@ -20,19 +24,56 @@ print("\t\t\t    SHORCUTS FOR EVERY CMD ")
 
 print("\t\t\t---------------------------------")
 
-password=getpass.getpass("Enter Password: ")
-correctpass="redhat"
+print("WELCOME to the TechLand")
+p.speak("WELCOME to the TechLand")
+r = sr.Recognizer()
 
-if password != correctpass:
-	print("Incorrect Password")
-	exit()
+with sr.Microphone() as source:
+	print('start saying...')
+	audio = r.listen(source)
+	print('we got it... wait')
+	
+r.recognize_google(audio)
+p.speak(" Iam BANG-BANG, Madam . How can I help you?")
 
+r = sr.Recognizer()
+
+with sr.Microphone() as source:
+	print('start saying...')
+	audio = r.listen(source)
+	print('we got it... wait')
+	
+r.recognize_google(audio)
+p.speak("Ok, Madam")
+
+p.speak("So, Where You Wants to Deploy this -local or remote")
 print("Where You Wants to Deploy this (local/remote) : ",end=" ")
-location= input()
+r = sr.Recognizer()
 
-if location=="remote":
-	remote_IP=input("Enter the IP of remote location: ")
+with sr.Microphone() as source:
+	print('start saying...')
+	audio = r.listen(source)
+	print('we got it... wait')
+//"type(audio)"
+p.speak("yes, we got it , wait")
 
+v2 = r.recognize_google(audio)
+
+if "remote" in cmd:
+	s =p.speak("You have Enter the IP of remote location")
+	remote_IP= ("Enter the IP of remote location: ")
+	r = sr.Recognizer()
+
+        with sr.Microphone() as source:
+	        print('start saying...')
+	        audio = r.listen(source)
+	        print('we got it... wait')
+
+                t= p.speak("yes, we got it , wait")
+
+        v3 = r.recognize_google(audio)
+
+        p.speak("keep going madam")
 
 while True:
 
@@ -52,9 +93,24 @@ while True:
 			Press 12:Exit
 			  """)
 
+		v4 = p.speak("enter your choice")
 		print("Enter Your Choice: ",  end=" ") #here if we use the end=" " becoz when we give the input it is automatically go to new line For taking the input but I use this as to not terminate this in new line 
-		ch=input()
-		if location == "local":
+		
+		r = sr.Recognizer()
+
+                with sr.Microphone() as source:
+	               print('start saying...')
+	               audio = r.listen(source)
+	               print('we got it... wait')
+   
+                       t= p.speak("yes, we got it , wait")
+
+                v3 = r.recognize_google(audio)
+
+                p.speak("keep going madam")
+
+		
+		if "local" in v3:
 			if int(ch)==1:
 				while True:
 					print("""Press 1:Date
