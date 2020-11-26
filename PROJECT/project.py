@@ -110,8 +110,8 @@ while True:
                 p.speak("keep going madam")
 
 		
-		if "local" in v3:
-			if int(ch)==1:
+		if "local" in cmd:
+			if "1" in int(v3):
 				while True:
 					print("""Press 1:Date
 						     Press 2:Callender
