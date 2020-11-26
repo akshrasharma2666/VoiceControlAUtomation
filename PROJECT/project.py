@@ -1057,4 +1057,80 @@ while True:
 						os.system("fdisk {}".format(hdd_info))
 					elif "6" in v24:
 						break
+						   
+						   
+			elif "10" in v15:
+                                 while True:
+					print("""
+						<<<<----------------- Docker-------------------------->>>>>
+						IMP NOTE : Before installing docker, configure docker repo in "yum.repos.d' by "docker.repo"
+						Press 1: To install docker
+						Press 2: Start docker service
+						Press 3: Check docker status
+						Press 4: Pull docker os image
+						Press 5: Check all docker images
+						Press 6: Launch any docker container(or docker OS)
+						Press 7: Check running docker container
+						Press 8: Check all launched docker containers
+						Press 9: Check container IP
+						Press 10: Stop docker container
+						Press 11: Remove docker container
+						""")	
+						   
+				        w =p.speak("Enter your choice")
+				        print("Enter your choice: ", end=' ')
+						   
+				        r = sr.Recognizer()
+
+                                        with sr.Microphone() as source:
+	                                       print('start saying...')
+	                                       audio = r.listen(source)
+	                                       print('we got it... wait')
+
+                                               t= p.speak("yes, we got it , wait")
+
+                                        v25 = r.recognize_google(audio)
+				        print(v25)
+                                        p.speak("keep going madam")  
+						 
+					if "1" in v25:
+						os.system("yum install docker-ce --nobest")
+					elif "2" in v25:
+						os.system("systemctl start docker")
+				        elif "3" in v25:
+						os.system("systemctl status docker")
+				        elif "4" in v25:
+						os.system("docker pull centos:latest")
+				        elif "5" in v25:
+						os.system("docker images")
+				        elif "6" in v25:
+						os.system("docker run -dit --name newdockeros centos:latest")
+				        elif "7" in v25:
+						os.system("docker ps")
+					elif "8" in v25:
+						os.system("docker ps -a")
+				        elif "9" in v25:
+						os.system("yum install net-tools")
+						g= p.speak("we have installed net-tools package for ifconfig")
+						os.system("ifconfig")
+				        elif "10" in v25:
+						os.system("systemctl stop <container_idOR_name>")
+				        elif "11" in v25:
+						os.system("systemctl kill <container_idOR_name>")
+				        else:
+						break
 						
+						
+			elif "11" in v15:
+			        
+						   
+				
+						   
+			elif "12" in v15"			   
+				l= p.speak("EXIT door is here, BYE, BYE, have a good day, Take care madam")
+		                print("BYE")
+			        exit()
+
+			else:
+				o= p.speak("GOOD BYE")
+			        exit()
