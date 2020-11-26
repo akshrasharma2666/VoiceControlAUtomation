@@ -1122,7 +1122,16 @@ while True:
 						
 						
 			elif "11" in v15:
-			        
+			          while True:
+					print("""
+						<<<<----------------- AWS SERVICES-------------------------->>>>>
+						IMP NOTE : Before installing docker, configure docker repo in "yum.repos.d' by "docker.repo"
+						Press 0: Install awscli.msi software to work through CLI
+						Press 1: Start EC2 service
+						Press 2: Start EBS service
+						Press 3: Start IAM service
+						Press 4: Start S3 service
+						Press 5: Start CloudFront Service
 						   
 				
 						   
