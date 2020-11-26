@@ -105,13 +105,13 @@ while True:
    
                        t= p.speak("yes, we got it , wait")
 
-                v3 = r.recognize_google(audio)
+                v5 = r.recognize_google(audio)
 
                 p.speak("keep going madam")
 
 		
 		if "local" in cmd:
-			if "1" in int(v3):
+			if "1" in v5:
 				while True:
 					print("""Press 1:Date
 						     Press 2:Callender
@@ -121,22 +121,36 @@ while True:
 						     Press 6:Back"""
 						  )
 					print("Enter Your Choice: ", end=" ")
-					ch1=input()
-					if int(ch1)==1:
+					
+					
+					r = sr.Recognizer()
+
+                                        with sr.Microphone() as source:
+	                                       print('start saying...')
+	                                       audio = r.listen(source)
+	                                       print('we got it... wait')
+
+                                               t= p.speak("yes, we got it , wait")
+
+                                        v6 = r.recognize_google(audio)
+
+                                        p.speak("keep going madam")
+					
+					if "1" in v6:
 						os.system("date")
-					elif int(ch1)==2:
-					    os.system("cal")
-					elif int(ch1)==3:
-						os.system("ping 8.8.8.8")
-					elif int(ch1)==4:
+					elif "2" in v6:
+					        os.system("cal")
+					elif "3" in v6:
+					        os.system("ping 8.8.8.8")
+					elif "4" in v6:
 						os.system("dnf install xclip")
 						os.system("xclip")
-					elif int(ch1)==5:
+					elif "5" in v6:
 						os.system("init 0")
-					elif int(ch1)==6:
+					elif "6" in v6:
 						break
 
-			elif int(ch)==2:
+			elif "2" in v5:
 			    while True:
 			        print("""Press 1:Change Directory/Location
 			        	     Press 2:Move Just Back location
@@ -149,41 +163,55 @@ while True:
 			        	     Press 9:Back"""
 			        	  )
 			        print("Enter Your Choice: ", end=" ")
-			        ch1=input()
-			        if (int(ch1)==1):  	
+			        
+				r = sr.Recognizer()
+
+                                with sr.Microphone() as source:
+	                               print('start saying...')
+	                               audio = r.listen(source)
+	                               print('we got it... wait')
+				
+                                       t= p.speak("yes, we got it , wait")
+
+                                v7 = r.recognize_google(audio)
+
+                                p.speak("keep going madam")
+
+				
+			        if "1" in v7:  	
 			        	print("Enter the Address Of Your Destination (like Downloads or Desktop/Project/xyz): ", end=" ")
 			        	chage_dir=input()
 			        	os.system("cd {}".format(chage_dir))
-			        elif int(ch1)==2:
+			        elif "2" in v7:
 			        	os.system("cd ..")
-			        elif int(ch1)==3:
+			        elif "3" in v7:
 			        	print("Give the name to your floder: ",end=" ")
 			        	name=input()
 			        	os.system("mkdir {}".format(name))
-			        elif int(ch1)==4:
+			        elif "4" in v7:
 			        	print("Name of that Directory: ",end=" ")
 			        	name=input()
 			        	os.system("rm {}".format(name))
-			        elif int(ch1)==5:
+			        elif "5" in v7:
 			        	print("Give the name to your file: ",end=" ")
 			        	name=input()
 			        	print("Extension for your file: ",end=" ")
 			        	exe=input()
 			        	os.system("touch {}.{}".format(name,exe))
-			        elif int(ch1)==6:
+			        elif "6" in v7:
 			        	print("Give the file name with Extension : ",end=" ")
 			        	name=input()
 			        	exe=input()
 			        	os.system("rm {}.{}",format(name,exe))
-			        elif int(ch1)==7:
+			        elif "7" in v7:
 			        	os.system("ls -la")
-			        elif int(ch1)==8:
+			        elif "8" in v7:
 			        	print("Enter the name of the file/folder: ",end=" ")
 			        	name=input()
 			        	os.system("ls -la | grep {}",format(name))
-			        elif int(ch1)==9:
+			        elif "9" in v7:
 			        	break
-			elif int(ch)==3:
+			elif "3" in v5:
 				while True:
 					print("""
 			    		Welcome TO Package Manegment!!!
@@ -204,12 +232,26 @@ while True:
 			    		Press 5: Back
 			    		""")
 					print("Enter Your Choice: ", end=" ")
-					ch1=input()
-					if int(ch1)==1:
+					
+					r = sr.Recognizer()
+
+                                        with sr.Microphone() as source:
+	                                       print('start saying...')
+	                                       audio = r.listen(source)
+	                                       print('we got it... wait')
+
+                                               t= p.speak("yes, we got it , wait")
+
+                                        v8 = r.recognize_google(audio)
+
+                                        p.speak("keep going madam")
+
+					
+					if "1" in v8:
 						print("Enter the name of the Software: ", end=" ")
 						name_soft=input()
 						os.system("rpm q -a | grep {}".format(name_soft))
-					elif int(ch1)==2:
+					elif "2" in v8:
 						print("""
 							-----FOR Configure Your Yum Need To follow these steps: ------
 							Step 1: Go To the loction of the Yum Repo(run cmd)===>>> cd /etc/yum.repos.d/
@@ -235,13 +277,13 @@ while True:
 						os.system("yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm")
 						os.system("yum install https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm")
 						print("Now YOUR YUM IS CONFIGURED !!")
-					elif int(ch1)==3:
+					elif "3" in v8:
 						os.system("dnf repolist")
-					elif int(ch1)==4:
+					elif "4" in v8:
 						print("Enter the name of the valid software: ", end=" ")
 						name_soft=input()
 						os.system("dnf install {}".format(name_soft))
-					elif int(ch1)==5:
+					elif "5" in v8:
 						print("Enter the name of the valid Software: ", end=" ")
 						name_soft=input()
 						os.system("rpm -e {}".format(name_soft))
